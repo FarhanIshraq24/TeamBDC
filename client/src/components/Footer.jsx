@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>© 2026 TeamBDC — Team Bangladesh Cyclist. All rights reserved.</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>© 2026 TeamBDC. All rights reserved.</p>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>Part of the BDCyclists community 🇧🇩</p>
         </div>
       </div>

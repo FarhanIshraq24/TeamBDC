@@ -40,7 +40,7 @@ export default function Landing() {
           <div className="hero-overlay" />
         </div>
         <div className="hero-content container">
-          <div className="hero-badge animate-fadeInUp"><span className="badge badge-green">🏆 Team Bangladesh Cyclist</span></div>
+
           <h1 className="hero-title animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
             <span className="text-green">TEAM</span>BDC
           </h1>
