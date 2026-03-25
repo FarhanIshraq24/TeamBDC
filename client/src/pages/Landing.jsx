@@ -20,6 +20,7 @@ export default function Landing() {
   const [announcements, setAnnouncements] = useState([]);
   const [achievements, setAchievements] = useState([]);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     api.get('/leaderboard/monthly-top').then(r => setTop3(r.data)).catch(() => { });
@@ -183,7 +184,7 @@ export default function Landing() {
             </div>
             <div className="grid-3">
               {announcements.map(ann => (
-                <div key={ann._id} className="card">
+                <div key={ann._id} className="card announcement-card-home" onClick={() => setSelected(ann)}>
                   {ann.isPinned && <span className="badge badge-green" style={{ marginBottom: 12 }}>📌 Pinned</span>}
                   <h3 style={{ fontSize: '1rem', marginBottom: 8 }}>{ann.title}</h3>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.7 }}>{ann.content.slice(0, 150)}...</p>
@@ -191,8 +192,39 @@ export default function Landing() {
                 </div>
               ))}
             </div>
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <Link to="/announcements" className="btn btn-ghost">View All News →</Link>
+            </div>
           </div>
         </section>
+      )}
+
+      {/* ─── FLYER MODAL ─── */}
+      {selected && (
+        <div className="flyer-overlay" onClick={() => setSelected(null)}>
+          <div className="flyer-content animate-pop" onClick={e => e.stopPropagation()}>
+            <button className="close-flyer" onClick={() => setSelected(null)}>×</button>
+            <div className="flyer-header">
+              <img src="/logo.jpg" alt="TeamBDC" className="flyer-logo" />
+              <div className="flyer-brand">
+                <span className="flyer-team">TEAMBDC</span>
+                <span className="flyer-slogan">SHUT UP LEGS</span>
+              </div>
+            </div>
+            <div className="flyer-body">
+              <span className="flyer-date">{new Date(selected.createdAt).toLocaleDateString()}</span>
+              <h2 className="flyer-title">{selected.title}</h2>
+              <div className="flyer-divider" />
+              <div className="flyer-text">
+                {selected.content.split('\n').map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </div>
+            <div className="flyer-footer">
+              <p>Official Team Announcement</p>
+              <div className="flyer-dots"><span /><span /><span /></div>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* ─── CTA ─── */}

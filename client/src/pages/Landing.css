@@ -87,6 +87,16 @@
 .achievement-card:hover { transform: translateY(-4px); }
 .achievement-icon { font-size: 2.5rem; flex-shrink: 0; }
 
+/* Announcements */
+.announcement-card-home {
+  cursor: pointer;
+  transition: var(--transition);
+}
+.announcement-card-home:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-green);
+}
+
 /* CTA */
 .cta-section {
   background: radial-gradient(ellipse at center, rgba(0,230,118,0.08) 0%, transparent 70%);

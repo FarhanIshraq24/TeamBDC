@@ -11,7 +11,7 @@ export default function Footer() {
               <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-green)' }}>TeamBDC</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.7 }}>
-              Team Bangladesh Cyclist — Pushing limits, representing Bangladesh, inspiring the next generation of cyclists.
+              TeamBDC — Pushing limits, representing Bangladesh, inspiring the next generation of cyclists.
             </p>
             <p style={{ marginTop: 12, color: 'var(--accent-green)', fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 700 }}>
               SHUT UP LEGS 🚴
@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <h4 style={{ fontFamily: 'var(--font-heading)', marginBottom: 16, color: 'var(--text-primary)' }}>NAVIGATION</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {[['/', 'Home'], ['/team', 'Team'], ['/leaderboard', 'Leaderboard'], ['/gallery', 'Gallery']].map(([to, label]) => (
+              {[['/', 'Home'], ['/team', 'Team'], ['/leaderboard', 'Leaderboard'], ['/gallery', 'Gallery'], ['/announcements', 'Announcements']].map(([to, label]) => (
                 <Link key={to} to={to} style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.target.style.color = 'var(--accent-green)'}
                   onMouseLeave={e => e.target.style.color = 'var(--text-secondary)'}

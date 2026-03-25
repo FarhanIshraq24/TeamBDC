@@ -11,6 +11,7 @@ import Register from './pages/Register';
 import RiderDashboard from './pages/RiderDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
+import Announcements from './pages/Announcements';
 
 const ProtectedRoute = ({ children, roles }) => {
   const { user, loading } = useAuth();
@@ -40,6 +41,7 @@ function AppRoutes() {
         <Route path="/team" element={<Team />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/announcements" element={<Announcements />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path="/dashboard" element={<ProtectedRoute><RiderDashboard /></ProtectedRoute>} />

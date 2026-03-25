@@ -35,6 +35,7 @@ export default function Navbar() {
           <Link to="/team" className={active('/team')}>Team</Link>
           <Link to="/leaderboard" className={active('/leaderboard')}>Leaderboard</Link>
           <Link to="/gallery" className={active('/gallery')}>Gallery</Link>
+          <Link to="/announcements" className={active('/announcements')}>Announcements</Link>
           {user && <Link to="/dashboard" className={active('/dashboard')}>Dashboard</Link>}
           {isAdmin && <Link to="/admin" className={active('/admin')}>Admin</Link>}
           {isSuperAdmin && <Link to="/superadmin" className={active('/superadmin')}>Super Admin</Link>}
