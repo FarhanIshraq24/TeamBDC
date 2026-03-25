@@ -1,0 +1,101 @@
+.landing .hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: center; overflow: hidden;
+}
+
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1.2s ease; filter: brightness(0.4) saturate(0.8);
+}
+.hero-img.active { opacity: 1; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,14,26,0.85) 0%, rgba(0,230,118,0.05) 50%, rgba(10,14,26,0.9) 100%);
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
+.hero-badge { margin-bottom: 16px; }
+.hero-title {
+  font-family: var(--font-heading); font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 900; line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.hero-tagline {
+  font-family: var(--font-heading); font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700; color: var(--text-secondary); letter-spacing: 0.3em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;
+  max-width: 500px; margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 1;
+}
+.scroll-indicator {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  animation: pulse 2s infinite;
+}
+.scroll-indicator span {
+  display: block; width: 2px; height: 8px; background: var(--accent-green);
+  border-radius: 1px; opacity: 0.6;
+}
+.scroll-indicator span:nth-child(2) { opacity: 0.8; }
+.scroll-indicator span:nth-child(3) { opacity: 1; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-gallery { position: relative; height: 400px; }
+.about-photo {
+  position: absolute; border-radius: var(--radius-lg); object-fit: cover;
+  border: 3px solid var(--border);
+  transition: var(--transition);
+}
+.about-photo-0 { width: 65%; height: 75%; top: 0; left: 0; z-index: 2; }
+.about-photo-1 { width: 60%; height: 65%; bottom: 0; right: 0; z-index: 1; border-color: var(--accent-green); }
+
+/* Top 3 */
+.top3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.top3-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.top3-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,230,118,0.05), transparent);
+  opacity: 0; transition: var(--transition);
+}
+.rank-card-1 { border-color: rgba(255,214,0,0.3); }
+.rank-card-1::before { background: linear-gradient(135deg, rgba(255,214,0,0.08), transparent); opacity: 1; }
+.rank-card-2 { border-color: rgba(192,192,192,0.3); }
+.rank-card-3 { border-color: rgba(205,127,50,0.3); }
+.top3-card:hover { transform: translateY(-6px); }
+.top3-rank { font-size: 2.5rem; margin-bottom: 12px; }
+.top3-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border); margin-bottom: 12px; }
+.rank-card-1 .top3-avatar { border-color: var(--accent-gold); }
+.top3-name { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+.top3-city { color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 16px; }
+.top3-points { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-green); margin-bottom: 12px; }
+.top3-points span { font-size: 1rem; color: var(--text-secondary); }
+.top3-stats { display: flex; justify-content: center; gap: 20px; font-size: 0.85rem; color: var(--text-secondary); }
+
+/* Achievements */
+.achievement-card { transition: var(--transition); }
+.achievement-card:hover { transform: translateY(-4px); }
+.achievement-icon { font-size: 2.5rem; flex-shrink: 0; }
+
+/* CTA */
+.cta-section {
+  background: radial-gradient(ellipse at center, rgba(0,230,118,0.08) 0%, transparent 70%);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-gallery { height: 300px; }
+  .top3-grid { grid-template-columns: 1fr; }
+}
